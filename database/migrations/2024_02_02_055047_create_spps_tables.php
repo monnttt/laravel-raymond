@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('films', function (Blueprint $table) {
-            $table->id();
+        Schema::create('spps_tables', function (Blueprint $table) {
+            $table->id('id_spp');
+            $table->integer('tahun');
+            $table->integer('nominal');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('films');
+        Schema::dropIfExists('spps_tables');
     }
 };
