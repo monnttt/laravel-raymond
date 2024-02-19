@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('pembayarans_tables', function (Blueprint $table) {
             $table->id('id_pembayaran');
-            $table->foreignId('id_petugas')->references('id_petugas')->on('petugases_tables');
+            $table->foreignId('id_petugas')->references('id_petugas')->on('petugases_tables')->cascadeOnUpdate()->cascadeOnDelete();
             $table->char('nisn', 10);
             $table->foreign('nisn')->references('nisn')->on('siswas_tables');
             $table->date('tgl_bayar');
             $table->string('bulan_dibayar', 8);
             $table->string('tahun_dibayar', 4);
-            $table->foreignId('id_spp')->references('id_spp')->on('spps_tables');
+            $table->foreignId('id_spp')->references('id_spp')->on('spps_tables')->cascadeOnUpdate()->cascadeOnDelete()  ;
             $table->integer('jumlah_dibayar');
             $table->timestamps();
         });

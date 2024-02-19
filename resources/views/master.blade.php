@@ -7,8 +7,9 @@
 
     <title>Document</title>
 </head>
-<body>
-   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<body class="text-bg-info p-3">
+    <form action="{{ route('spp.store') }}" method="POST">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand" href="/template/about">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +30,13 @@
   </div>
 </nav>
 
-@yield ('isi')
+
+
+
+
+@yield ('content')
 
 @include(" include")
-
+</form>
 </body>
 </html>
