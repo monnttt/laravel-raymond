@@ -14,7 +14,7 @@
     <br>
     <div class="nominal">
         <label for="nominal">Nominal</label>
-        <div class="input-group input-group-sm mb-3">
+        <div class="input-group in  `put-group-sm mb-3">
             <!-- Input untuk nominal -->
             <input name="nominal" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="{{ $spps_tables->nominal }}">
           </div>

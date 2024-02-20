@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\SppController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SppControllers;
-
+use App\Http\Controllers\KelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,28 +15,21 @@ use App\Http\Controllers\SppControllers;
 |
 */
 
-// Route::get('/master', function () {
-//     return view('master');
-// });
-// Route::get('/template/about', function () {
-//     return view('template.about');
-// });
-// Route::get('/template/home', function () {
-//     return view('template.home');
-//});
-
-Route::get('/views/spp/create', function () {
-    return view('views.spp.create');
+Route::get('/index', function () {
+    return view('index');
 });
 
-// Route Untuk mengelola GenreController
+Route::view('/template', 'template.master ' ) ;
 
-Route::controller(SppControllers::class)->group(function () {
-    Route::get('/spp', 'index')->name('spp.index');
-    Route::get('/spp/create', 'create')->name('spp.create');
-    Route::post('/spp', 'store')->name('spp.store');
-    Route::get('/spp/{spp}/edit', 'edit')->name('spp.edit');
-    Route::put('/spp/{spp}', 'update')->name('spp.update');
-    Route::delete('/spp/{spp}', 'destroy')->name('spp.destroy');
-});
+route::view('/projek','template.projek') ;
 
+route::controller(SppController::class)->group(function () {
+    Route::get('/spp','index')->name('spp.index');
+    Route::get('/spp/create','create')->name('spp.create');
+    Route::post('/spp','store')->name('spp.store');
+    Route::get('/spp/{id}/edit','edit')->name('spp.edit');
+    Route::put('/spp/{id}','update')->name('spp.update');
+    Route::delete('/spp/{id}','destroy')->name('spp.destroy');
+ });
+
+ Route::resource('/kelas', KelasController::class);
